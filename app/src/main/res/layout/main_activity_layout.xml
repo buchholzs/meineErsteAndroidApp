@@ -1,18 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--
+Definiert das aussehen der MainActivity
+
+TODO 1 androidx.constraintlayout.widget.ConstraintLayout
+TODO 1 durch LinearLayout ersetzen.
+
+TODO 2 Orientierung des Linearlayouts setzen
+TODO 3 Vier ImageButtons definieren
+TODO 4 Je ein Monster zum Anzeigen waehlen
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageButton
+        android:id="@+id/imgBtnShowFirstMonster"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/strMonsterToShow"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/monster06" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/imgBtnShowSecondMonster"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/strMonsterToShow"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/monster07" />
+
+    <ImageButton
+        android:id="@+id/imgBtnShowThirdMonster"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/strMonsterToShow"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/monster12" />
+
+    <ImageButton
+        android:id="@+id/imgBtnShowFourthMonster"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="@string/strMonsterToShow"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/monster09" />
+</LinearLayout>
