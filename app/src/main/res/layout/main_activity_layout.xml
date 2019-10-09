@@ -23,6 +23,7 @@ TODO 4 Je ein Monster zum Anzeigen waehlen
         android:layout_height="0dp"
         android:layout_weight="1"
         android:contentDescription="@string/strMonsterToShow"
+        android:onClick="handleButtonClicksDefinedInLayout"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/monster06" />
 
@@ -32,6 +33,7 @@ TODO 4 Je ein Monster zum Anzeigen waehlen
         android:layout_height="0dp"
         android:layout_weight="1"
         android:contentDescription="@string/strMonsterToShow"
+        android:onClick="handleButtonClicksDefinedInLayout"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/monster07" />
 
@@ -41,6 +43,7 @@ TODO 4 Je ein Monster zum Anzeigen waehlen
         android:layout_height="0dp"
         android:layout_weight="1"
         android:contentDescription="@string/strMonsterToShow"
+        android:onClick="handleButtonClicksDefinedInLayout"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/monster12" />
 
@@ -50,6 +53,7 @@ TODO 4 Je ein Monster zum Anzeigen waehlen
         android:layout_height="0dp"
         android:layout_weight="1"
         android:contentDescription="@string/strMonsterToShow"
+        android:onClick="handleButtonClicksDefinedInLayout"
         android:scaleType="centerInside"
         app:srcCompat="@drawable/monster09" />
 </LinearLayout>
