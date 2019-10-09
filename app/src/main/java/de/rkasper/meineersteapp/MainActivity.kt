@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //1. Setzen des Layouts
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.main_activity_layout)
     }
     //endregion
 }
