@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-Definiert das aussehen der MainActivity
 
-TODO 1 androidx.constraintlayout.widget.ConstraintLayout
-TODO 1 durch LinearLayout ersetzen.
-
-TODO 2 Orientierung des Linearlayouts setzen
-TODO 3 Vier ImageButtons definieren
-TODO 4 Je ein Monster zum Anzeigen waehlen
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">Meine erste App</string>
-    <string name="strUserMsgYouHaveChoosenAmonster">You choose a monster: </string>
+    <string name="strMonsterDetailsActivityTitle">Monster details</string>
+
     <string name="strContentDescriptionFirstMonster">Monster one</string>
     <string name="strContentDescriptionSecondMonster">Monster two</string>
     <string name="strContentDescriptionThirdMonster">Monster three</string>
     <string name="strContentDescriptionFourthMonster">Monster four</string>
+
     <string name="strContentDescriptionBigMonster">Big monster</string>
-    <string name="strMonsterDetailsActivityTitle">Monster details</string>
+
+    <string name="strDrawableIdKey">drawableIdKey</string>
 </resources>

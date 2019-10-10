@@ -2,8 +2,9 @@ package de.rkasper.meineersteapp.logic
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.ImageButton
 import android.widget.Toast
 import de.rkasper.meineersteapp.R
 import de.rkasper.meineersteapp.gui.MonsterDetailsActivity
@@ -11,42 +12,26 @@ import de.rkasper.meineersteapp.gui.MonsterDetailsActivity
 /**
  * Nimmt alle Klicks der MainActivity entgegen
  * und leitet die weitere Logik ein.
+ * Sie nimmt eine Arbeitsreferenz auf die MainActivity entgegen
+ * um die neue Activity starten zu koennen
  */
 class MainActivityListener(private val currentActivity: Context) : View.OnClickListener {
 
-    //region 1. Klickhandling
+    //region 1. OnClick Handling
+
     /**
      * Wertet aus welches Widget
      * geklickt wurde.
      */
     override fun onClick(v: View?) {
-        if (v is ImageButton) showChosenMonsterUserMessage(v.contentDescription.toString())
 
-       startMonsterDetailsActivity()
-    }
-    //endregion
+        //1. Tag auslesen
+        val tagObject = v?.tag
+
+        //2. SmartCast nutzen um Object zu int zu casten
+        if (tagObject is Int) startMonsterDetailsActivity(tagObject.toInt())
 
 
-    //region  2. UserMsg ausgeben
-
-    /**
-     * Nimmt die Content Description
-     * eines geklickten ImageButtons entgegen
-     * und zeigt diesen mit einer in der
-     * res/values/strings.xml definierten Nachricht auf
-     * der aktuellen Activity(MainActivity) an.
-     */
-    private fun showChosenMonsterUserMessage(strContentDescription: String) {
-        //UserMessage aus res/values/strings.xml auslesen und mit der Inhaltsbeschreibung verbinden
-        val strUserMsg =
-            this.currentActivity.getString(R.string.strUserMsgYouHaveChoosenAmonster)
-
-        //Toast ausgeben Activity auf der er angezeigt wird,Nachricht, Anzeigedauer
-        Toast.makeText(
-            this.currentActivity,
-            "$strUserMsg $strContentDescription",
-            Toast.LENGTH_SHORT
-        ).show()
     }
     //endregion
 
@@ -55,7 +40,8 @@ class MainActivityListener(private val currentActivity: Context) : View.OnClickL
     /**
      * Startet per Intent die MonsterDetailsActivity
      */
-    private fun startMonsterDetailsActivity() {
+    private fun startMonsterDetailsActivity(iDrawableId: Int) {
+
 
         /*
          * 1. Explizites Intent generieren
@@ -70,11 +56,27 @@ class MainActivityListener(private val currentActivity: Context) : View.OnClickL
          * Zielactivity ist immer eine class-Angabe.
          */
         val intentStartMonsterDetailsActivity =
-            Intent(this.currentActivity,
-                MonsterDetailsActivity::class.java)
+            Intent(
+                this.currentActivity,
+                MonsterDetailsActivity::class.java
+            )
 
+        //2. Schluessel zum anhaengen der Information aus res/values/strings.xml auslesen
+        val strDrawableExtraIdKeyValue = this.currentActivity.getString(R.string.strDrawableIdKey)
 
-        //2. MainActivity startet die MonsterDetailsActivity
+        //3. Erstellen des Bundles
+        val extraBundle  = Bundle()
+
+        //4. Uebergeben der ResourcId vom Tag des Buttons kommend an Bundle
+        extraBundle.putInt(strDrawableExtraIdKeyValue,iDrawableId)
+
+        //5. Bundle an Intent haengen
+        intentStartMonsterDetailsActivity.putExtras(extraBundle)
+
+        //6. Bestimmende Aktion des Intents setzen
+        intentStartMonsterDetailsActivity.action = Intent.ACTION_VIEW
+
+        //6. MainActivity startet die MonsterDetailsActivity
         this.currentActivity.startActivity(intentStartMonsterDetailsActivity)
     }
     //endregion

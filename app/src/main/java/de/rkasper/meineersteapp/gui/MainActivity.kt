@@ -27,15 +27,15 @@ class MainActivity : AppCompatActivity() {
 
 
         /*
-        * 2. Zuweisung der Zusatzinformation
-        * welches Bild aktuell auf den Buttons angezeigt wird.
+        * 2. Zuweisung der Zusatzinformation:
+        * Welches Bild wird aktuell auf dem Button gezeigt
         */
         this.imgBtnShowFirstMonster.tag = R.drawable.monster06;
         this.imgBtnShowSecondMonster.tag = R.drawable.monster07;
         this.imgBtnShowThirdMonster.tag = R.drawable.monster12;
         this.imgBtnShowFourthMonster.tag = R.drawable.monster09;
 
-        /**
+        /*
          * 3. Listenergenerierung bei ListnerHandling in seperater Klasse
          * welche die die Klicks aller ImageButtons
          * entgegenimmt und weitere Logik einleitet.
