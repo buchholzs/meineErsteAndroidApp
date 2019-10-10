@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Meine erste App</string>
-    <string name="strMonsterToShow">Monster to show</string>
-    <string name="strUserMsgAMonsterChoosen">You choose a monster: </string>
+    <string name="strUserMsgYouHaveChoosenAmonster">You choose a monster: </string>
+    <string name="strContentDescriptionFirstMonster">Monster one</string>
+    <string name="strContentDescriptionSecondMonster">Monster two</string>
+    <string name="strContentDescriptionThirdMonster">Monster three</string>
+    <string name="strContentDescriptionFourthMonster">Monster four</string>
 </resources>
