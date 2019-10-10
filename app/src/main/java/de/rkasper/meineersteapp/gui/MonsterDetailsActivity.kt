@@ -1,9 +1,9 @@
 package de.rkasper.meineersteapp.gui
 
-import android.content.Intent.ACTION_VIEW
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent.*
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import de.rkasper.meineersteapp.R
 import kotlinx.android.synthetic.main.monster_details_activity_layout.*
 
@@ -19,8 +19,11 @@ import kotlinx.android.synthetic.main.monster_details_activity_layout.*
  */
 class MonsterDetailsActivity : AppCompatActivity() {
 
-    private val logTag = MonsterDetailsActivity::class.simpleName
+    //region 0. Konstanten fuer Auswertungen der Extras
+    private val defaultResourceType: String = "drawable"
     private val noIntExtraFound: Int = -1
+    private val noDrawableIdFound: Int = 0
+    //endregion
 
     //region 1. Lebenszyklus
     /**
@@ -36,20 +39,27 @@ class MonsterDetailsActivity : AppCompatActivity() {
         this.checkForAction(this.intent.action)
 
     }
+    //endregion
 
+    //region 2. Action Check
     /**
      * Checkt welche Action gesetzt wurde
      * und leitet das anzeigen des passenden
-     * Bildes ein
+     * Bildes ein. Wenn die ACTION_VIEW gesetzt
+     * wurde, ist die Activity vom MainActivityListener
+     * gesteratet worden. Bei ACTION_SEND von einer anderen
+     * App.
      */
     private fun checkForAction(action: String?) {
 
         when (action) {
             ACTION_VIEW -> showImageFromIntentExtra()
+            ACTION_SEND -> showImageBasedOfTextInfoFromExternalApp()
         }
     }
+    //endregion
 
-
+    //region 3. Extra-Auswertung des expliziten Intentes
     /**
      * Beschafft das Bild
      * auf Basis der dem startenenden Intent
@@ -70,6 +80,49 @@ class MonsterDetailsActivity : AppCompatActivity() {
             this.imgvBigMonster.setImageResource(iDrawableResId)
         }
 
+    }
+    //endregion
+
+    //region 3. Gesendete Textinformationen von externen Apps auswerten
+    /**
+     * Wertet aus ob die gesendeten Textinformationen
+     * einer externen App einem bekannten Dateinamen entpsrechen
+     * oder nicht. Sollte die Informationen nicht ausgewertet
+     * werden koennen so wird ein Standardbild gesetzt. Kann
+     * es ausgewertet werden so wird das passende Bild angezeigt.
+     *
+     * Vorraussetzung ist das der passenden Intent-Filter im AndroidManifest.xml
+     * eingefuegt wurde
+     *
+     * TODO 2 Textdaten externer Apps auswerten
+     */
+    private fun showImageBasedOfTextInfoFromExternalApp() {
+
+        //1. Monstername auslesen
+        val strMonsterNameFromExternalApp = this.intent?.getStringExtra(EXTRA_TEXT);
+
+        //2. Drawable Id auslesen
+        var iDrawableResId: Int = this.resources.getIdentifier(
+            strMonsterNameFromExternalApp?.trim(),
+            defaultResourceType, packageName
+        )
+
+        //3. Check ob die drawableResourceId gefunden wurde oder nicht
+        if (iDrawableResId == noDrawableIdFound) {
+
+            //4. Standardbild festlegen
+            iDrawableResId = R.drawable.monster01
+
+            //UserMsg Kenn ich nicht hab ein Standardbild gesetzt
+            Toast.makeText(
+                this,
+                R.string.strUserMsgNoPictureForSentDataChoseDefault,
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+        //4. Bild anzeigen
+        this.imgvBigMonster.setImageResource(iDrawableResId)
     }
     //endregion
 }

@@ -12,12 +12,21 @@
 
         <activity
             android:name=".gui.MonsterDetailsActivity"
-            android:label="@string/strMonsterDetailsActivityTitle" />
+            android:label="@string/strMonsterDetailsActivityTitle">
+            <!--TODO 1 Intent-Filter damit andere Apps Textdaten an diese Activity senden koennen-->
+            <intent-filter>
+
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain"/>
+            </intent-filter>
+        </activity>
 
         <activity android:name=".gui.MainActivity">
+            <!--Diese Activity startet als erstes-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

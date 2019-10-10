@@ -10,4 +10,5 @@
     <string name="strContentDescriptionBigMonster">Big monster</string>
 
     <string name="strDrawableIdKey">drawableIdKey</string>
+    <string name="strUserMsgNoPictureForSentDataChoseDefault">No Picture for sent data found.\nChose a default one.</string>
 </resources>
