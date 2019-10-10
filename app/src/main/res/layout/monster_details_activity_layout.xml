@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Definiert das aussehen der MonsterDetailsAcivity
+
+TODO 1 androidx.constraintlayout.widget.ConstraintLayout
+TODO 1 durch LinearLayout ersetzen.
+
+TODO 2 Orientierung des Linearlayouts setzen
+TODO 3 ImageView einfeugen
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".gui.MonsterDetailsActivity">
+
+    <ImageView
+        android:id="@+id/imgvBigMonster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@string/strContentDescriptionBigMonster"
+        app:srcCompat="@drawable/monster06"
+        tools:srcCompat="@drawable/monster06" />
+
+</LinearLayout>

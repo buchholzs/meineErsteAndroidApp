@@ -5,4 +5,6 @@
     <string name="strContentDescriptionSecondMonster">Monster two</string>
     <string name="strContentDescriptionThirdMonster">Monster three</string>
     <string name="strContentDescriptionFourthMonster">Monster four</string>
+    <string name="strContentDescriptionBigMonster">Big monster</string>
+    <string name="strMonsterDetailsActivityTitle">Monster details</string>
 </resources>
