@@ -41,7 +41,7 @@ class MainActivityListener(private val currentActivity: Context) : View.OnClickL
         val strUserMsg =
             this.currentActivity.getString(R.string.strUserMsgYouHaveChoosenAmonster)
 
-        //Toast ausgeben Aktivity auf der er angezeigt wird,Nachricht, Anzeigedauer
+        //Toast ausgeben Activity auf der er angezeigt wird,Nachricht, Anzeigedauer
         Toast.makeText(
             this.currentActivity,
             "$strUserMsg $strContentDescription",
