@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meine erste App</string>
+    <string name="strContentDescriptionBigMonster">Großes Monster</string>
+    <string name="strContentDescriptionFirstMonster">Erstes Monster</string>
+    <string name="strContentDescriptionFourthMonster">Viertes Monster</string>
+    <string name="strContentDescriptionSecondMonster">Zweites Monster</string>
+    <string name="strContentDescriptionThirdMonster">Drittes Monster</string>
+    <string name="strMonsterDetailsActivityTitle">Monster im Detail</string>
+    <string name="strUserMsgNoPictureForSentDataChoseDefault">Es liegt kein Bild für die gesendeten Daten vor.\nEs wurde ein Standardbild gesetzt</string>
+</resources>
