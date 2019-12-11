@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         this.setContentView(R.layout.main_activity_layout)
 
         //2. Setzen der Toolbar
-        this.setSupportActionBar(toolbar)
+        setSupportActionBar(mainToolbar)
 
         fab.setOnClickListener { view ->
 >>>>>>> 6a64e85 (Initial Commit with all the files this time)
