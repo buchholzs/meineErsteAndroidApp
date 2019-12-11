@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.rhistel.meinlieblingsmonster">
-
     <!--
     Beschreibt den Aufbau der Applikation,
     um genau zu sein:
@@ -11,7 +10,6 @@
     - Welche Hardwar wird genutzt
     - Welche OS Interaktionen nehemen welche Bestandteile der App vor (ContentProvider)
     -->
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,12 +17,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <!--Diese Activity startet als erstes-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

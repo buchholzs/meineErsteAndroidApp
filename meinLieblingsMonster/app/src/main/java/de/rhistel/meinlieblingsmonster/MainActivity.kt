@@ -22,18 +22,19 @@ class MainActivity : AppCompatActivity() {
      */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         //1. Layout setzen
         this.setContentView(R.layout.main_activity_layout)
 
         //2. Setzen der Toolbar
-        this.setSupportActionBar(toolbar)
+        setSupportActionBar(mainToolbar)
 
-        fab.setOnClickListener { view ->
+        //3. Fab Button mit Listener belegen
+        this.fabSaveUserName.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
     }
+
     //endregion
 
     //region 2. MenuHandling
@@ -52,5 +53,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-    //endregion
+//endregion
 }
