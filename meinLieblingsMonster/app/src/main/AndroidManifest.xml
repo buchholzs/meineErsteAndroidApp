@@ -15,6 +15,7 @@
 =======
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.rhistel.meinlieblingsmonster">
+
     <!--
     Beschreibt den Aufbau der Applikation,
     um genau zu sein:
@@ -33,6 +34,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
 <<<<<<< HEAD
             android:exported="true"
