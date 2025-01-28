@@ -3,15 +3,14 @@ package de.rkasper.meineersteapp.gui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import de.rkasper.meineersteapp.logic.MainActivityListener
-import de.rkasper.meineersteapp.R
-import kotlinx.android.synthetic.main.main_activity_layout.*
-
+import de.rkasper.meineersteapp.databinding.ActivityMainBinding
+import android.view.View
 /**
  * Einstiegspunkt in die App
  */
 class MainActivity : AppCompatActivity() {
 
-
+    private lateinit var binding: ActivityMainBinding
     //region 1 Lebenszyklus
 
     /**
@@ -22,9 +21,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //1. Setzen des Layouts
-        this.setContentView(R.layout.main_activity_layout)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view: View = binding.root
+        setContentView(view)
 
+        //1. Setzen des Layouts
+        this.setContentView(viewModel.layout.main_activity_layout)
+        this.setContentView(R.layout.main_activity_layout)
 
         /*
         * 2. Zuweisung der Zusatzinformation:

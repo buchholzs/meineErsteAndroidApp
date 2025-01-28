@@ -12,3 +12,6 @@
 /captures
 .externalNativeBuild
 .cxx
+meinLieblingsMonster/app/build/
+meinLieblingsMonster/app/.idea/
+.idea/
