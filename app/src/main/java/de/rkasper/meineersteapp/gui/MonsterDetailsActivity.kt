@@ -1,11 +1,14 @@
 package de.rkasper.meineersteapp.gui
 
+import android.annotation.SuppressLint
 import android.content.Intent.*
 import android.os.Bundle
+import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import de.rkasper.meineersteapp.R
-import kotlinx.android.synthetic.main.monster_details_activity_layout.*
+import de.rkasper.meineersteapp.databinding.ActivityDetailBinding
 
 /**
  * Zeigt ein Monster im Detail
@@ -18,6 +21,8 @@ import kotlinx.android.synthetic.main.monster_details_activity_layout.*
  * dieses Extrahiert und dazu genutz das Bild zu setzen.
  */
 class MonsterDetailsActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityDetailBinding
 
     //region 0. Konstanten fuer Auswertungen der Extras
     private val defaultResourceType: String = "drawable"
@@ -33,7 +38,9 @@ class MonsterDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         //1. Setzen des Layouts
-        this.setContentView(R.layout.monster_details_activity_layout)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        val view: View = binding.root
+        setContentView(view)
 
         //2. Checken welche Action gesetzt wurde
         this.checkForAction(this.intent.action)
@@ -77,7 +84,8 @@ class MonsterDetailsActivity : AppCompatActivity() {
 
         //3. Checken ob eine ResourceId als Extra gesetzt wurde oder nicht
         if (iDrawableResId > noIntExtraFound) {
-            this.imgvBigMonster.setImageResource(iDrawableResId)
+            val view: ImageView? = findViewById<ImageView>(R.id.imgvBigMonster)
+            view?.setImageResource(iDrawableResId)
         }
 
     }
@@ -96,10 +104,11 @@ class MonsterDetailsActivity : AppCompatActivity() {
      *
      * TODO 2 Textdaten externer Apps auswerten
      */
+    @SuppressLint("DiscouragedApi")
     private fun showImageBasedOfTextInfoFromExternalApp() {
 
         //1. Monstername auslesen
-        val strMonsterNameFromExternalApp = this.intent?.getStringExtra(EXTRA_TEXT);
+        val strMonsterNameFromExternalApp = this.intent?.getStringExtra(EXTRA_TEXT)
 
         //2. Drawable Id auslesen
         var iDrawableResId: Int = this.resources.getIdentifier(
@@ -122,7 +131,8 @@ class MonsterDetailsActivity : AppCompatActivity() {
         }
 
         //4. Bild anzeigen
-        this.imgvBigMonster.setImageResource(iDrawableResId)
+        val view: ImageView? = findViewById<ImageView>(R.id.imgvBigMonster)
+        view?.setImageResource(iDrawableResId)
     }
     //endregion
 }

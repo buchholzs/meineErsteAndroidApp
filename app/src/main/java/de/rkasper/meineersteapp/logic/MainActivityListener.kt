@@ -3,9 +3,6 @@ package de.rkasper.meineersteapp.logic
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
 import de.rkasper.meineersteapp.R
 import de.rkasper.meineersteapp.gui.MonsterDetailsActivity
 
@@ -15,7 +12,7 @@ import de.rkasper.meineersteapp.gui.MonsterDetailsActivity
  * Sie nimmt eine Arbeitsreferenz auf die MainActivity entgegen
  * um die neue Activity starten zu koennen
  */
-class MainActivityListener(private val currentActivity: Context) : View.OnClickListener {
+class MainActivityListener(private val currentActivity: Context) {
 
     //region 1. OnClick Handling
 
@@ -23,13 +20,13 @@ class MainActivityListener(private val currentActivity: Context) : View.OnClickL
      * Wertet aus welches Widget
      * geklickt wurde.
      */
-    override fun onClick(v: View?) {
+    fun onClick(tagObject: Int) {
 
         //1. Tag auslesen
-        val tagObject = v?.tag
+        //val tagObject = v?.tag
 
         //2. SmartCast nutzen um Object zu int zu casten
-        if (tagObject is Int) startMonsterDetailsActivity(tagObject.toInt())
+        startMonsterDetailsActivity(tagObject)
 
 
     }
