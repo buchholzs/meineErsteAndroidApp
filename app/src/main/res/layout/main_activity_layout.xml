@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="de.rkasper.meineersteapp.databinding.ActivityMainBinding">
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".gui.MainActivity">
+
+        <ImageButton
+            android:id="@+id/imgBtnShowFirstMonster"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/strContentDescriptionFirstMonster"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/monster06" />
+
+        <ImageButton
+            android:id="@+id/imgBtnShowSecondMonster"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/strContentDescriptionSecondMonster"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/monster07" />
+
+        <ImageButton
+            android:id="@+id/imgBtnShowThirdMonster"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/strContentDescriptionThirdMonster"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/monster12" />
+
+        <ImageButton
+            android:id="@+id/imgBtnShowFourthMonster"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/strContentDescriptionFourthMonster"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/monster09" />
+    </LinearLayout>
+</layout>

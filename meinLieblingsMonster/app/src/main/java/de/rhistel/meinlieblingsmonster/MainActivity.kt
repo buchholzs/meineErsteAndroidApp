@@ -5,14 +5,13 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-
-import kotlinx.android.synthetic.main.main_activity_layout.*
+import android.view.View
 
 /**
  * Einstiegspunkt in die App
  */
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var binding: Binding
     //region 1 Lebenszyklus
 
     /**
@@ -23,13 +22,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //1. Layout setzen
-        this.setContentView(R.layout.main_activity_layout)
+        this.setContentView(viewModel.layout.main_activity_layout)
 
         //2. Setzen der Toolbar
         setSupportActionBar(mainToolbar)
 
+        binding = ResultProfileBinding.inflate(layoutInflater)
+        var view: View = binding.root
+        setContentView(view)
+
         //3. Fab Button mit Listener belegen
-        this.fabSaveUserName.setOnClickListener { view ->
+        binding.fabSaveUserName.setOnClickListener { view: View ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
@@ -40,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     //region 2. MenuHandling
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
+        menuInflater.inflate(binding.menu.menu_main, menu)
         return true
     }
 
@@ -49,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            binding.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
     }
